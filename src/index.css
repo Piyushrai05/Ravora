@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  --color-deep-green: #0B5D3B;
+  --color-darker-green: #06301F;
+  --color-gold: #D9B23C;
+  --color-gold-light: #E7C65A;
+  --color-cream: #FAF6EA;
+  --color-cream-light: #FDFCFA;
+  --color-ink: #0F1A14;
+  --color-maroon: #7A1230;
+  --color-maroon-dark: #5C0D24;
+
+  /* Backward compatible aliases for Tailwind utilities */
+  --color-emerald-primary: #0B5D3B;
+  --color-emerald-deep: #06301F;
+  --color-ivory: #FAF6EA;
+  --color-warm-white: #FAF6EA;
+  --color-burgundy: #7A1230;
+  --color-dark-text: #0F1A14;
+  --color-muted-text: #667066;
+  --color-border: #E5DEC9;
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+:root {
+  --header-h: 80px;
+  --color-deep-green: #0B5D3B;
+  --color-darker-green: #06301F;
+  --color-gold: #D9B23C;
+  --color-cream: #FAF6EA;
+  --color-ink: #0F1A14;
+  --color-maroon: #7A1230;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: #FAF6EA;
+  color: #0F1A14;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.font-serif {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* Subtle Film Grain Texture Overlay (2-3% opacity) */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99998;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Gold shimmer sweep animation */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #D9B23C, #FAF6EA, #D9B23C);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #06301F;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9B23C;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E7C65A;
+}
+
+/* Section divider */
+.gold-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D9B23C, transparent);
+  margin: 0 auto;
+}
+
+/* Editorial pill badge for section numbering ("01 — SERVICES") */
+.section-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border: 1px solid rgba(217, 178, 60, 0.35);
+  background: rgba(217, 178, 60, 0.08);
+  color: #D9B23C;
+}
+
+.section-pill-dark {
+  border-color: rgba(11, 93, 59, 0.3);
+  background: rgba(11, 93, 59, 0.08);
+  color: #0B5D3B;
+}
